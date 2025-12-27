@@ -5,23 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-gray-50 flex items-center justify-center min-h-screen">
-    <div class="max-w-md w-full px-6 py-12 bg-white shadow-xl rounded-2xl text-center">
-        <img class="w-24 h-24 rounded-full mx-auto border-4 border-indigo-500" src="avatar.png" alt="Avatar">
+<body class="bg-gray-50 dark:bg-gray-900 flex items-center justify-center min-h-screen transition-colors duration-500 overflow-hidden">
+    <canvas id="bg-canvas"></canvas>
+
+    <div class="relative max-w-md w-full px-6 py-12 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm shadow-2xl rounded-2xl text-center transition-all duration-500">
+        <!-- 深色模式切换按钮 -->
+        <button onclick="toggleDarkMode()" class="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300">
+            <svg class="w-5 h-5 text-gray-600 dark:text-yellow-300 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+            </svg>
+            <svg class="w-5 h-5 text-yellow-300 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+            </svg>
+        </button>
+        <img class="w-24 h-24 rounded-full mx-auto border-4 border-indigo-500 dark:border-indigo-400" src="avatar.png" alt="Avatar">
         
-        <h1 class="mt-4 text-2xl font-bold text-gray-800">XM Zheng</h1>
-        <p class="text-gray-500 text-sm">Practice is the Sole Criterion for Testing Truth</p>
+        <h1 class="mt-4 text-2xl font-bold text-gray-800 dark:text-white">XM Zheng</h1>
+        <p class="text-gray-500 dark:text-gray-400 text-sm">Practice is the Sole Criterion for Testing Truth</p>
 
         <div class="mt-8 space-y-4">
-            <a href="https://xmzheng.cn/" class="block w-full py-3 px-4 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition">Blog</a>
-            <a href="https://github.com/simonzxm" class="block w-full py-3 px-4 bg-gray-800 text-white font-medium rounded-lg hover:bg-black transition">GitHub</a>
-            <a href="https://space.bilibili.com/359292507" class="block w-full py-3 px-4 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition">Bilibili</a>
+            <a href="https://xmzheng.cn/" class="block w-full py-3 px-4 bg-indigo-600 dark:bg-indigo-500 text-white font-medium rounded-lg hover:bg-indigo-700 dark:hover:bg-indigo-600 transition">Blog</a>
+            <a href="https://github.com/simonzxm" class="block w-full py-3 px-4 bg-gray-800 dark:bg-gray-700 text-white font-medium rounded-lg hover:bg-black dark:hover:bg-gray-600 transition">GitHub</a>
+            <a href="https://space.bilibili.com/359292507" class="block w-full py-3 px-4 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition">Bilibili</a>
         </div>
 
-        <footer class="mt-12 text-gray-400 text-xs">
+        <footer class="mt-12 text-gray-400 dark:text-gray-500 text-xs">
             © 2025 XM Zheng
         </footer>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
